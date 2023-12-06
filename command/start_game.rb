@@ -13,9 +13,19 @@ module Command
     end
 
     def execute(request:)
+      if request.game.started
+        request.event.respond(content: "The game has already started!", ephemeral: true)
+
+        return
+      end
+
+      request.game.update!(started: true)
+
       GamePlayer.where(game_id: request.game.id).each do |player|
         village = Village.create!(player_id: player.player_id,game_id: request.game.id)
-        Building.create!(village_id: village.id, building_type: 5)
+
+        starting_building = BuildingType.where(name:"Vegetable Patch").first
+        Building.create!(village_id: village.id, building_type_id: starting_building.id)
       end
       request.event.respond(content: "The game has begun! No tribes for you")
       # rescue => e

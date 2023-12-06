@@ -10,6 +10,7 @@ require_relative './models/game'
 require_relative './models/game_player'
 require_relative './models/building'
 require_relative './models/building_type'
+require_relative './models/village'
 require_relative './command/request'
 
 bot = Discordrb::Bot.new(token: ENV.fetch('SLASH_COMMAND_BOT_TOKEN', nil), intents: [:server_messages])
