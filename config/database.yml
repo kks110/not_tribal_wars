@@ -1,0 +1,12 @@
+dev:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: not_tribal_wars_dev
+  username: not_tribal_wars
+  password: not_tribal_wars
+
+prod:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
