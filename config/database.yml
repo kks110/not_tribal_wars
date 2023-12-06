@@ -2,9 +2,10 @@ dev:
   adapter: postgresql
   encoding: unicode
   pool: 5
+  host: localhost
   database: not_tribal_wars
-  username: not_tribal_wars
-  password: not_tribal_wars
+  username: partneralliance
+  password: partneralliance123
 
 prod:
   adapter: postgresql

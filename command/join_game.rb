@@ -3,18 +3,23 @@
 require_relative './base'
 
 module Command
-  class CreateGame < Command::Base
+  class JoinGame < Command::Base
     def name
-      :create_game
+      :join_game
     end
 
     def description
-      "Create a game!"
+      "Join a game"
     end
 
     def execute(request:)
+      if request.game.game_players.include?(request.event.user.id)
+
+      end
+      
       if request.game
         request.event.respond(content: "A game is already created for this server!", ephemeral: true)
+
         return
       end
 
@@ -26,8 +31,8 @@ module Command
 
       request.event.respond(content: response)
 
-    # rescue => e
-    #   ErrorLog.logger.error("An Error occurred: Command name: #{name}. Error #{e}")
+      # rescue => e
+      #   ErrorLog.logger.error("An Error occurred: Command name: #{name}. Error #{e}")
     end
   end
 end
