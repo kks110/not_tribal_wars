@@ -1,0 +1,125 @@
+We are going to build a (simple) 4x game, with how much of each X to be determined. For my benefit, the 4 are:
+
+Explore
+
+Expand
+
+Exploit
+
+Exterminate
+
+We will run it via Discord, and it will be available from any server. Perhaps we can have per-server options, and global, and people can choose which one they want (perhaps we can charge for server-specific ones!).
+
+Premise
+
+You arrive in a village, as it's being formed by its founders. They have built a town hall, the central point of the village. They also have a well (water), vegetable patch (food), gold mine (gold), lumber yard (wood) and a quarry (stone).
+
+The aim is to build a strong, successful village, by harvesting resources and improving the village. As the game evolves, you will gain access to other villages to trade, and if you wish, fight.
+
+Resources
+
+Resources are split into two groups: fixed and variable (come up with better names). Fixed means they aren't used to build anything, but certain things may have a minimum requirement of that resource. For example, to build X building, you need a minimum of Y resource. It never goes down, unless you destruct buildings.
+
+The second type is variable, meaning it's used to do things, such as build or upgrade buildings. It naturally collects over time, so depending on what resource-generating buildings you've got, it will generate X per hour.
+
+Fixed Resources
+
+There are two types of fixed resources: water and food. These will be used to restrict access to certain buildings until later in the game, as you must grow your food/water "allowance" to access some. You do this by building more water/food-related buildings, or upgrading existing ones.
+
+Another potential one might be population cap, but didn't want to make it too complex.
+
+(maybe rather than resources we call these "limits" or something)
+
+Variable resources
+
+There are three types of variable resource: wood, stone and gold. These are used to build and upgrade buildings, as well as train troops. Your village gains resources per hour, but we won't add them every hour, we can work out a better way I suspect (won't scale to update tons of villages every hour).
+
+
+
+Town hall = restrict size of slots (e.g. you can build X buildings atm, upgrade and get more).
+
+Building Types
+
+There are a number of building types available, either giving you more resources, granting you access to certain functionality (e.g. going to war, trade, training units) or simply as a requirement to build other buildings.
+
+For now they are outlines, but we'll need a spreadsheet or something to track what each building gives you, the requirements for building it, what it unlocks etc.
+
+Names all TBC. Each one has multiple levels, with there being prerequisites of having a certain level X to build Y. And upgrading them can bring other benefits (cheaper unit training, faster unit training, more resources gathered etc.)
+
+Functional
+
+Town Hall
+
+The central point of your village. It doesn't generate any resources, but controls the size of your village. At the start, you'll have a small village, with a modest amount of room to build. Upgrading it gives you a larger village, but upgrades to the Town Hall are particularly expensive.
+
+Trading Post
+
+Allows you to trade with other players, for example you can trade X wood for Y gold. To keep it simple, we can just do 1:1 trading for now rather than doing offers etc.
+
+Storage Yard
+
+Increases the amount of variable resources you can hold, as there will be a cap. At level 1 you can hold X resources.
+
+Defensive
+
+City Walls
+
+By default, there are no walls. Building them makes your village harder to conquer as attackers must break through your defences.
+
+Gate with Portcullis
+
+After walls, there's just a gap. A gate further increases your defences.
+
+Resources
+
+Well
+
+The level 1 well gives you access to X water to begin with.
+
+Vegetable Patch
+
+The level 1 vegetable patch gives you access to X food to begin with.
+
+Lumber Yard
+
+The level 1 lumber yard generates X wood per hour.
+
+Gold Mine
+
+The level 1 gold mine generates X gold per hour.
+
+Quarry
+
+The level 1 quarry generates X gold per hour.
+
+Units
+
+Barracks
+
+The barracks allow you to train infantry, such as spearmen, swordsmen and archers. Level 1 gives you access to 1 type of unit, level 2 2 etc.
+
+Stables
+
+The stables allow you to train cavalry.
+
+Workshop
+
+The workshop allows you to build siege equipment such as catapults.
+
+War
+
+You can go to war with anyone. In doing so, you send your troops (we'll need to find a way to select how many). If they are successful, you'll pillage resources, and destroy their walls and maybe some buildings.
+
+To keep things simple for day 1, we may not want to incorporate "conquering" yet, as managing multiple villages seems trickier - but we should keep the option in mind when creating the alpha version.
+
+We should add the ability for anyone to surrender and leave the game, if they wish.
+
+Events
+
+Perhaps we can have some form of fun events, like X things spawning, or just dot random things around for people to interact with. For example, a troll located at X,Y that if you defeat, you gain something.
+
+Map
+
+You'll need to be able to see the map, and where the other players are on the map. I suspect we want to make it relatively big, bigger than the tank, with smaller squares perhaps as less info needed on it - just name.
+
+If possible, we can render other things on the map, like troop movements and stuff but maybe not for alpha as it sounds tricky!
