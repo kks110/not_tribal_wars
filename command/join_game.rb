@@ -13,23 +13,34 @@ module Command
     end
 
     def execute(request:)
-      if request.game.game_players.include?(request.event.user.id)
-
+      player = if Player.where(discord_id: request.event.user.id).any?
+        Player.where(
+          discord_id: request.event.user.id
+        ).first
+               else
+        Player.create!(
+          discord_id: request.event.user.id,
+          username: request.event.user.username
+        )
       end
-      
-      if request.game
-        request.event.respond(content: "A game is already created for this server!", ephemeral: true)
 
-        return
-      end
-
-      Game.create!(
-        started: false, finished: false
+      game_player = GamePlayer.where(
+        player_id: player.id,
+        game_id: request.game.id
       )
 
-      response = "A game has been created. Register up!"
+      unless game_player.empty?
+        request.event.respond(content: "You have already registered", ephemeral: true)
 
-      request.event.respond(content: response)
+        return
+      else
+        GamePlayer.create!(
+          player_id: player.id,
+          game_id: request.game.id
+        )
+      end
+
+      request.event.respond(content: "Thanks for joining!")
 
       # rescue => e
       #   ErrorLog.logger.error("An Error occurred: Command name: #{name}. Error #{e}")
