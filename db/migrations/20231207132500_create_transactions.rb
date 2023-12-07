@@ -12,6 +12,7 @@ class CreateTransactions < ActiveRecord::Migration[7.0]
       t.belongs_to :resource_type
       t.integer :resource_change
       t.integer :current_resource_total
+      t.timestamps
     end
 
 

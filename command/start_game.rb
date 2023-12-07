@@ -27,11 +27,16 @@ module Command
 
       request.game.update!(started: true)
 
-      GamePlayer.where(game_id: request.game.id).each do |player|
-        village = Village.create!(player_id: player.player_id,game_id: request.game.id)
+      GamePlayer.where(game_id: request.game.id).each do |game_player|
+        village = Village.create!(player_id: game_player.player_id,game_id: request.game.id)
 
         starting_building = BuildingType.where(name:"Vegetable Patch").first
         Building.create!(village_id: village.id, building_type_id: starting_building.id)
+
+        ResourceType.all.each do |resource|
+          Transaction.create!(game_player_id: game_player.id, resource_type_id: resource.id, resource_change: 500, current_resource_total: 500)
+        end
+
       end
       request.event.respond(content: "The game has begun! No tribes for you")
       # rescue => e
