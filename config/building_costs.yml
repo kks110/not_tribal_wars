@@ -1,0 +1,9 @@
+buildings:
+  Barracks:
+    Wood: 100
+    Stone: 100
+    Food: 50
+  Wall:
+    Wood: 250
+    Stone: 200
+    Food: 100

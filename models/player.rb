@@ -7,5 +7,4 @@ class Player < ActiveRecord::Base
 
   validates :discord_id, :username, presence: true, uniqueness: true
 
-
 end
