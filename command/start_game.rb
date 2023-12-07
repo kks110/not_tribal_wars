@@ -13,6 +13,12 @@ module Command
     end
 
     def execute(request:)
+      unless request.game
+        request.event.respond(content: "You must create a game!", ephemeral: true)
+
+        return
+      end
+
       if request.game.started
         request.event.respond(content: "The game has already started!", ephemeral: true)
 
