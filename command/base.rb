@@ -1,3 +1,5 @@
+require_relative './options'
+
 module Command
   class Base
     def initialize; end

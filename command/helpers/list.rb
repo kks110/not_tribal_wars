@@ -4,6 +4,8 @@ require_relative '../join_game'
 require_relative '../start_game'
 require_relative '../list_villages'
 require_relative '../reset_game'
+require_relative '../view_village'
+
 module Command
   module Helpers
     LIST = [
@@ -12,7 +14,8 @@ module Command
       JoinGame.new,
       StartGame.new,
       ListVillages.new,
-      ResetGame.new
+      ResetGame.new,
+      ViewVillage.new
     ]
   end
 end

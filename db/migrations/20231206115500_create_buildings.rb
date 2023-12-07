@@ -7,8 +7,8 @@ class CreateBuildings < ActiveRecord::Migration[7.0]
 
     create_table :buildings do |t|
       t.belongs_to :village
-      t.references :building_type
-      t.integer :building_level, default: 1
+      t.belongs_to :building_type
+      t.integer :level, default: 1
     end
 
 
