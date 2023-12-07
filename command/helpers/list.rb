@@ -6,6 +6,7 @@ require_relative '../list_your_villages'
 require_relative '../reset_game'
 require_relative '../view_village'
 require_relative '../list_all_villages'
+require_relative '../view_resources'
 
 module Command
   module Helpers
@@ -17,7 +18,8 @@ module Command
       ListYourVillages.new,
       ResetGame.new,
       ViewVillage.new,
-      ListAllVillages.new
+      ListAllVillages.new,
+      ViewResources.new
     ]
   end
 end

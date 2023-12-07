@@ -1,0 +1,5 @@
+
+resource_generation:
+  wood_per_level: 20
+  stone_per_level: 20
+  food_per_level: 20

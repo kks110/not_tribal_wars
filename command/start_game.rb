@@ -28,10 +28,11 @@ module Command
       request.game.update!(started: true)
 
       GamePlayer.where(game_id: request.game.id).each do |game_player|
-        village = Village.create!(player_id: game_player.player_id,game_id: request.game.id)
-
-        starting_building = BuildingType.where(name:"Vegetable Patch").first
-        Building.create!(village_id: village.id, building_type_id: starting_building.id)
+        village = Village.create!(player_id: game_player.player_id, game_id: request.game.id)
+        ['Vegetable Patch', 'Mine', 'Forest'].each do |building|
+          starting_building = BuildingType.where(name: building).first
+          Building.create!(village_id: village.id, building_type_id: starting_building.id)
+        end
 
         ResourceType.all.each do |resource|
           Transaction.create!(game_player_id: game_player.id, resource_type_id: resource.id, resource_change: 500, current_resource_total: 500)
